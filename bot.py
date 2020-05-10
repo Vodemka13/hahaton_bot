@@ -1,15 +1,15 @@
 import vk_api
 from vk_api.longpoll import VkLongPoll, VkEventType
 from random import choice
-from hahaton.menu_keyboard import menu_keyboard
-from hahaton.minigames_keyboard import minigames_keyboard
-from hahaton.rsp import rsp_keyboard, get_winner, yes_no_keyboard
-from hahaton.cities import cities, cities_keyboard, bot_turn_cities, human_turn_cities
-from hahaton.study import study_keyboard, mailing_keyboard
-from hahaton.wiki import wikip
-from hahaton.animals import animals
-from hahaton.tic_tac_toe import tic_tac_toe_keyboard, human_turn_tic_tac_toe, bot_turn_tic_tac_toe
-from hahaton.mailing_keyboard import mailing_it_keyboard, mailing_eng_keyboard, it_dict, eng_dict
+from menu_keyboard import menu_keyboard
+from minigames_keyboard import minigames_keyboard
+from rsp import rsp_keyboard, get_winner, yes_no_keyboard
+from cities import cities, cities_keyboard, bot_turn_cities, human_turn_cities
+from study import study_keyboard, mailing_keyboard
+from wiki import wikip
+from animals import animals
+from tic_tac_toe import tic_tac_toe_keyboard, human_turn_tic_tac_toe, bot_turn_tic_tac_toe
+from mailing_keyboard import mailing_it_keyboard, mailing_eng_keyboard, it_dict, eng_dict
 
 token = '60b8ae3a1dab3b179bb60e9af23ab0af56421f9d2fb44ca8bb9e6e9da9f8ead1b5b174ed48c51284e15a4'
 vk_session = vk_api.VkApi(token=token)
