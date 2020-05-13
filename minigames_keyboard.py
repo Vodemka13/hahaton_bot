@@ -32,6 +32,14 @@ def minigames_keyboard():
             [{
                 "action": {
                     "type": "text",
+                    "payload": "{\"button\": \"2\"}",
+                    "label": "Милые фотокарточки животных &#128150;"
+                },
+                "color": "primary"
+            }, ],
+            [{
+                "action": {
+                    "type": "text",
                     "payload": "{\"button\": \"4\"}",
                     "label": "Выход &#128682;"
                 },
