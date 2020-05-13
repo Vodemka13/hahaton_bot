@@ -20,14 +20,6 @@ def menu_keyboard():
                     "label": "Мини игры &#127922;"
                 },
                 "color": "primary"
-            }, ],
-            [{
-                "action": {
-                    "type": "text",
-                    "payload": "{\"button\": \"2\"}",
-                    "label": "Милые фотокарточки животных &#128150;"
-                },
-                "color": "primary"
             }, ]
         ]
     }
