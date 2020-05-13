@@ -16,7 +16,7 @@ vk_session = vk_api.VkApi(token=token)
 session_api = vk_session.get_api()
 longpoll = VkLongPoll(vk_session)
 
-begin_text = 'Привет, Тебя приветствует Карантин-Бот. Надеемся, что эта маленькая и неумелая разработка поможет тебе ' \
+begin_text = 'Привет, Тебя приветствует Карантин-Бот. Надеемся, что эта маленькая разработка поможет тебе ' \
              'скрасить твои карантиновые будни ;з \n Вот список команд. Если ты не туда нажал, можешь заново вызвать ' \
              'эту клавиатуру сообщением "Команды". И главное - не болейте! '
 
@@ -48,10 +48,10 @@ while True:
 
                     elif msg.lower() == 'обучение 📚':
                         vk_session.method('messages.send',
-                                          {'user_id': event.user_id, 'message': 'Поощраю, приятной учебы ;з',
+                                          {'user_id': event.user_id, 'message': 'Приятной учебы ;з',
                                            'keyboard': study_keyboard(), 'random_id': 0})
                         users[event.user_id]['action'] = 'choosing_studies'
-                        print(f'Бот: Поощраю, приятной учебы ;з')
+                        print(f'Бот: Приятной учебы ;з')
 
                     elif msg.lower() == 'мини игры 🎲':
                         vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Приятной игры ;з',
@@ -59,20 +59,22 @@ while True:
                         users[event.user_id]['action'] = 'choosing_games'
                         print(f'Бот: Приятной игры ;з')
 
-                    elif msg.lower() == 'милые фотокарточки животных 💖':
-                        vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'В наше трудное '
-                                                                                                 'время только '
-                                                                                                 'зверятки спасут мир',
-                                                            'keyboard': menu_keyboard(), 'attachment': choice(animals),
-                                                            'random_id': 0})
-                        print(f'Бот: В наше трудное время только котятки спасут мир')
-
                     elif users[event.user_id]['action'] == 'choosing_studies':
                         if msg.lower() == 'интересные рассылки 📨':
                             vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Выбери категорию',
                                                                 'keyboard': mailing_keyboard(), 'random_id': 0})
                             users[event.user_id]['action'] = 'choosing_mailing'
                             print(f'Бот: Выбери категорию')
+                        elif msg.lower() == 'информационный раздел 📲':
+                            vk_session.method('messages.send',
+                                              {'user_id': event.user_id, 'message': 'Тут представлены разнообразные '
+                                                                                    'таблички, которые могут помочь '
+                                                                                    'тебе во время обучения',
+                                               'keyboard': info_keyboard(),
+                                               'random_id': 0})
+                            users[event.user_id]['action'] = 'in_info'
+                            print('Бот: Тут представлены разнообразные таблички, которые могут помочь тебе во время '
+                                  'обучения')
                         elif msg.lower() == 'поиск по википедии 𝞨':
                             vk_session.method('messages.send',
                                               {'user_id': event.user_id, 'message': 'Введи свой запрос',
@@ -93,6 +95,54 @@ while True:
                                            'keyboard': study_keyboard(), 'random_id': 0})
                         users[event.user_id]['action'] = 'choosing_studies'
                         print(f'Бот: {text}')
+
+                    elif users[event.user_id]['action'] == 'in_info':
+                        if msg.lower() == 'выход 🚪':
+                            vk_session.method('messages.send',
+                                              {'user_id': event.user_id, 'message': 'Можешь что-нибудь выбрать',
+                                               'keyboard': study_keyboard(), 'random_id': 0})
+                            users[event.user_id]['action'] = 'choosing_studies'
+                            print(f'Бот: Можешь что-нибудь выбрать')
+                        elif msg.lower() == 'таблица sin, cos, tg, ctg':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Держи',
+                                                                'keyboard': info_keyboard(),
+                                                                'attachment': 'photo-194854410_457239032',
+                                                                'random_id': 0})
+                            print(f'Бот: Держи')
+                        elif msg.lower() == 'таблица квадратов':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Держи',
+                                                                'keyboard': info_keyboard(),
+                                                                'attachment': 'photo-194854410_457239033',
+                                                                'random_id': 0})
+                            print(f'Бот: Держи')
+
+                        elif msg.lower() == 'степени мнимой единицы':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Держи',
+                                                                'keyboard': info_keyboard(),
+                                                                'attachment': 'photo-194854410_457239034',
+                                                                'random_id': 0})
+                            print(f'Бот: Держи')
+
+                        elif msg.lower() == 'таблица натуральных логарифмов':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Держи',
+                                                                'keyboard': info_keyboard(),
+                                                                'attachment': 'photo-194854410_457239035',
+                                                                'random_id': 0})
+                            print(f'Бот: Держи')
+
+                        elif msg.lower() == 'таблица десятичных логарифмов':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Держи',
+                                                                'keyboard': info_keyboard(),
+                                                                'attachment': 'photo-194854410_457239036',
+                                                                'random_id': 0})
+                            print(f'Бот: Держи')
+
+                        elif msg.lower() == 'таблица логарифмов по основанию а':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'Держи',
+                                                                'keyboard': info_keyboard(),
+                                                                'attachment': 'photo-194854410_457239037',
+                                                                'random_id': 0})
+                            print(f'Бот: Держи')
 
                     elif users[event.user_id]['action'] == 'choosing_mailing':
                         if msg.lower() == 'выход 🚪':
@@ -166,6 +216,14 @@ while True:
                                               {'user_id': event.user_id, 'message': city,
                                                'keyboard': cities_keyboard(), 'random_id': 0})
                             print(f'Бот: Пожалуй, я начну' + city)
+                        elif msg.lower() == 'милые фотокарточки животных 💖':
+                            vk_session.method('messages.send', {'user_id': event.user_id, 'message': 'В наше трудное '
+                                                                                                     'время только '
+                                                                                                     'зверятки спасут мир',
+                                                                'keyboard': minigames_keyboard(),
+                                                                'attachment': choice(animals),
+                                                                'random_id': 0})
+                            print(f'Бот: В наше трудное время только котятки спасут мир')
                         elif msg.lower() == 'крестики-нолики ❌⭕':
                             vk_session.method('messages.send',
                                               {'user_id': event.user_id, 'message': 'Твой ход, удачки)',
